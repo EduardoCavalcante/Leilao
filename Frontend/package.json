@@ -1,0 +1,31 @@
+{
+  "name": "SysLeilao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoCavalcante/Leilao.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduardoCavalcante/Leilao/issues"
+  },
+  "homepage": "https://github.com/EduardoCavalcante/Leilao#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "html-webpack-plugin": "^4.5.1",
+    "webpack": "^5.16.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
