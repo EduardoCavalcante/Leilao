@@ -7,7 +7,7 @@ namespace Backend.Services
 {
     public class AuctionService : IAuctionService
     {
-        public User Create(User auction)
+        public User Create(Auction auction)
         {
             throw new NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace Backend.Services
             throw new NotImplementedException();
         }
 
-        public User Update(User auction)
+        public User Update(Auction auction)
         {
             throw new NotImplementedException();
         }

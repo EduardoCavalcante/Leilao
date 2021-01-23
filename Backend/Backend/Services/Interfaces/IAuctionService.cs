@@ -8,9 +8,9 @@ namespace Backend.Services.Interfaces
 {
     public interface IAuctionService
     {
-        User Create(User auction);
+        User Create(Auction auction);
         void Delete(long auctionId);
-        User Update(User auction);
+        User Update(Auction auction);
         List<User> GetAll();
         User GetById(long auctionId);
     }

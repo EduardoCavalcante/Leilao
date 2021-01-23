@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             path: '/',
             name: "Login",
-            controller: new AuctionController(new AuctionService(), new AuctionView())
+            controller: new LoginController(new LoginService(), new LoginView())
         },
         {
             path: '/Autcions',

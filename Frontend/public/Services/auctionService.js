@@ -1,11 +1,11 @@
 class AuctionService {
     async getAll(formData = new FormData()) {
-        //return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: formData });
+        //return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET', body: formData });
         return localStorage.getItem('auctions');
     }
 
     async GetByParams(formData = new FormData()) {
-        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: formData });
+        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET', body: formData });
     }
 
     async create(formData = new FormData()) {
@@ -13,10 +13,10 @@ class AuctionService {
     }
 
     async update(formData = new FormData()) {
-        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: formData });
+        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'PUT', body: formData });
     }
 
-    async delete(formData = new FormData()) {
-        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: formData });
+    async delete(userId = null) {
+        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'DEL', body: formData });
     }
 }

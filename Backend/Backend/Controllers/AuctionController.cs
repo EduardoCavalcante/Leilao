@@ -22,12 +22,12 @@ namespace Backend.Controllers
 
         [HttpPost]
         [Route("api/[controller]/[action]")]
-        public IActionResult Create([FromBody] User auction)
+        public IActionResult Create([FromBody] Auction auction)
         {
             try
             {
                 if (TryValidateModel(auction) == false)
-                    return BadRequest();
+                    return BadRequest(ModelState.Values);
 
                 User newAuction = _auctionService.Create(auction);
                 return Ok(newAuction);
@@ -40,7 +40,7 @@ namespace Backend.Controllers
 
         [HttpPut]
         [Route("api/[controller]/[action]")]
-        public IActionResult Update([FromBody] User auction)
+        public IActionResult Update([FromBody] Auction auction)
         {
             try
             {

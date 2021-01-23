@@ -9,7 +9,6 @@ class LoginView {
             event.preventDefault();
             try {
                 this.validate();
-                console.log('submit');
                 handleLogin(event);
             }
             catch (exception) {
@@ -18,71 +17,35 @@ class LoginView {
                     errors.forEach(error => {
                         this.createErrorMessage(error.field, error.message);
                     });
+                } else {
+                    console.info(exception);
                 }
             }
-
         });
     }
 
     render() {
-        this.contentForm = document.createElement('div');
-        this.contentForm.classList.add('col-md-6', 'col-md-offset-3');
 
-        this.form = document.createElement('form');
-        this.form.id = 'formLogin';
-        this.form.classList.add('form-signin');
-        this.form.method = 'post';
+        const utility = new Utility();
+        this.contentForm = utility.createElement('div', "content", ['col-md-12', 'col-md-offset-3']);
+        this.form = utility.createElement('form', 'formLogin', ['col-md-4', 'form-signin', 'container'], [{ Name: 'method', Value: 'post' }]);
+        this.contentUser = utility.createElement('div', "contentUser", ['row', 'mb-3']);
+        this.labelUser = utility.createElement('label', "labelUser", ['col-md-3', 'col-form-label'], [{ Name: 'for', Value: 'username' }], 'Usuário');
+        this.contentInputUser = utility.createElement('div', '', ['col-md-9']);
+        this.InputUser = utility.createElement('input', 'username', ['form-control'], [{ Name: 'data-valid', Value: 'required' }, { Name: 'type', Value: 'text' }, { Name: 'maxlength', Value: '10' }]);
+        this.contentPass = utility.createElement('div', "contentPass", ['row', 'mb-3']);
+        this.labelPass = utility.createElement('label', "labelPass", ['col-md-3', 'col-form-label'], [{ Name: 'for', Value: 'password' }], 'Senha');
+        this.contentInputPass = utility.createElement('div', '', ['col-md-9']);
+        this.InputPass = utility.createElement('input', 'password', ['form-control'], [{ Name: 'data-valid', Value: 'required' }, { Name: 'type', Value: 'password' }, { Name: 'maxlength', Value: '15' }]);
+        this.buttonSubmit = utility.createElement('button', 'btnLogin', ['btn', 'btn-lg', 'btn-primary', 'btn-block'], [{ Name: 'type', Value: 'submit' }], 'Entrar');
 
-        this.contentUser = document.createElement('div');
-        this.contentUser.classList.add('row', 'mb-3');
-
-        this.labelUser = document.createElement('label');
-        this.labelUser.for = 'username';
-        this.labelUser.classList.add('col-md-3', 'col-form-label');
-        this.labelUser.textContent = 'Usuário';
-
-        this.contentInputUser = document.createElement('div');
-        this.contentInputUser.classList.add('col-md-9');
-
-        this.InputUser = document.createElement('input');
-        this.InputUser.type = 'text'
-        this.InputUser.id = 'username'
-        this.InputUser.setAttribute('data-valid', 'required');
-        this.InputUser.classList.add('form-control');
-
-        this.contentInputUser.append(this.InputUser);
-
-        this.contentUser.append(this.labelUser, this.contentInputUser);
-
-        this.contentPass = document.createElement('div');
-        this.contentPass.classList.add('row', 'mb-3');
-
-        this.labelPass = document.createElement('label');
-        this.labelPass.for = 'password';
-        this.labelPass.classList.add('col-md-3', 'col-form-label');
-        this.labelPass.textContent = 'Senha';
-
-        this.contentInputPass = document.createElement('div');
-        this.contentInputPass.classList.add('col-md-9');
-
-        this.InputPass = document.createElement('input');
-        this.InputPass.type = 'password'
-        this.InputPass.id = 'password'
-        this.InputPass.setAttribute('data-valid', 'required');
-        this.InputPass.classList.add('form-control');
-
-        this.contentInputPass.append(this.InputPass);
-
-        this.contentPass.append(this.labelPass, this.contentInputPass);
-
-        this.buttonSubmit = document.createElement('button');
-        this.buttonSubmit.classList.add('btn', 'btn-lg', 'btn-primary', 'btn-block');
-        this.buttonSubmit.type = 'submit';
-        this.buttonSubmit.textContent = 'Entrar';
-
-        this.form.append(this.contentUser, this.contentPass, this.buttonSubmit);
-        this.contentForm.append(this.form);
         this.app.append(this.contentForm);
+        this.contentForm.append(this.form);
+        this.form.append(this.contentUser, this.contentPass, this.buttonSubmit);
+        this.contentUser.append(this.labelUser, this.contentInputUser);
+        this.contentInputUser.append(this.InputUser);
+        this.contentPass.append(this.labelPass, this.contentInputPass);
+        this.contentInputPass.append(this.InputPass);
     }
 
     validate() {
