@@ -5,10 +5,11 @@ class LoginController {
         this.view = _view;
     }
 
-    handleLogin = async (event) => {
-        var data = await this.service.authentication(event.target)
-        data.then((data) => {
-            console.log(data);
+    handleLogin = (formData = new FormData()) => {
+        var result = this.service.authentication(new FormData(formData))
+        result.then(function (response) {
+            return response.json();
+
         });
     };
 

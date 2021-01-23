@@ -7,7 +7,6 @@ using System;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly ILogger<AuctionController> _logger;

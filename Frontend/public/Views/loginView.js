@@ -9,7 +9,7 @@ class LoginView {
             event.preventDefault();
             try {
                 this.validate();
-                handleLogin(event);
+                handleLogin(event.target);
             }
             catch (exception) {
                 if (Array.isArray(exception)) {
@@ -32,11 +32,11 @@ class LoginView {
         this.contentUser = utility.createElement('div', "contentUser", ['row', 'mb-3']);
         this.labelUser = utility.createElement('label', "labelUser", ['col-md-3', 'col-form-label'], [{ Name: 'for', Value: 'username' }], 'Usuário');
         this.contentInputUser = utility.createElement('div', '', ['col-md-9']);
-        this.InputUser = utility.createElement('input', 'username', ['form-control'], [{ Name: 'data-valid', Value: 'required' }, { Name: 'type', Value: 'text' }, { Name: 'maxlength', Value: '10' }]);
+        this.InputUser = utility.createElement('input', 'username', ['form-control'], [{ Name: 'data-valid', Value: 'required' }, { Name: 'type', Value: 'text' }, { Name: 'Name', Value: 'login' }, { Name: 'maxlength', Value: '10' }]);
         this.contentPass = utility.createElement('div', "contentPass", ['row', 'mb-3']);
         this.labelPass = utility.createElement('label', "labelPass", ['col-md-3', 'col-form-label'], [{ Name: 'for', Value: 'password' }], 'Senha');
         this.contentInputPass = utility.createElement('div', '', ['col-md-9']);
-        this.InputPass = utility.createElement('input', 'password', ['form-control'], [{ Name: 'data-valid', Value: 'required' }, { Name: 'type', Value: 'password' }, { Name: 'maxlength', Value: '15' }]);
+        this.InputPass = utility.createElement('input', 'password', ['form-control'], [{ Name: 'data-valid', Value: 'required' }, { Name: 'type', Value: 'password' }, { Name: 'Name', Value: 'password' }, { Name: 'maxlength', Value: '15' }]);
         this.buttonSubmit = utility.createElement('button', 'btnLogin', ['btn', 'btn-lg', 'btn-primary', 'btn-block'], [{ Name: 'type', Value: 'submit' }], 'Entrar');
 
         this.app.append(this.contentForm);

@@ -23,7 +23,15 @@ namespace Backend.Services
 
         public User GetByLogin(string login)
         {
-            throw new NotImplementedException();
+            return new User()
+            {
+                Login = "jeduardosc",
+                Password = null,
+                CreationDate = DateTime.Now,
+                CreationUser = null,
+                UpdateDate = DateTime.Now,
+                UpdateUser = null
+            };
         }
 
         public User Update(User user)

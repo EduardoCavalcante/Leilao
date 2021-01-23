@@ -17,7 +17,7 @@ namespace Backend.Services
             _userService = userService;
         }
 
-        public User Login(string login, string password)
+        public User Login( string login, string password)
         {
             User user = _userService.GetByLogin(login);
 
@@ -30,7 +30,7 @@ namespace Backend.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, user.Nickname)
+                    new Claim(ClaimTypes.Name, user.Login)
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

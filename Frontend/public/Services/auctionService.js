@@ -5,7 +5,7 @@ class AuctionService {
     }
 
     async GetByParams(formData = new FormData()) {
-        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET', body: formData });
+        return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: formData });
     }
 
     async create(formData = new FormData()) {

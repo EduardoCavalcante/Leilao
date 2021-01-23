@@ -7,7 +7,6 @@ namespace Backend.Model
 {
     public class User
     {
-        public string Nickname { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }

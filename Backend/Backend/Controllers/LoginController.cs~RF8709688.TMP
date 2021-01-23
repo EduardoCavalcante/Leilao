@@ -19,15 +19,14 @@ namespace Backend.Controllers
             _loginService = loginService;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/[controller]/[action]")]
-        [Produces("application/json")]
-        public IActionResult Authorization(string login, string password)
+        public IActionResult Authorization( string login , string password)
         {
             try
             {
                 User userLoggedin = _loginService.Login(login , password);
-                return Ok(new { data = userLoggedin });
+                return Ok(userLoggedin);
             }
             catch (Exception ex)
             {
