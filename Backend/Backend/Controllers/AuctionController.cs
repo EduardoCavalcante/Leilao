@@ -28,7 +28,7 @@ namespace Backend.Controllers
                 if (TryValidateModel(auction) == false)
                     return BadRequest(ModelState.Values);
 
-                User newAuction = _auctionService.Create(auction);
+                Auction newAuction = _auctionService.Create(auction);
                 return Ok(newAuction);
             }
             catch (Exception ex)
@@ -43,7 +43,7 @@ namespace Backend.Controllers
         {
             try
             {
-                User auctionUpdated = _auctionService.Update(auction);
+                Auction auctionUpdated = _auctionService.Update(auction);
 
                 return Ok(auctionUpdated);
             }
@@ -76,7 +76,7 @@ namespace Backend.Controllers
             try
             {
                 
-                User auction = _auctionService.GetById(auctionId);
+                Auction auction = _auctionService.GetById(auctionId);
                 if (auction != null)
                     return Ok();
                 else
