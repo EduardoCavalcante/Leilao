@@ -21,4 +21,8 @@ class AuctionController {
         const listAuctions = await this.service.getAll() || [];
         this.view.render(listAuctions);
     }
+
+    handleFormSearch(param) {
+        this.service.GetByParam(param);
+    }
 }

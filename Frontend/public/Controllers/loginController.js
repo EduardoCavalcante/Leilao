@@ -6,7 +6,7 @@ class LoginController {
     }
 
     handleLogin = (formData = new FormData()) => {
-        var result = this.service.authentication(new FormData(formData))
+        var result = this.service.authentication(formData)
         result.then(function (response) {
             return response.json();
 

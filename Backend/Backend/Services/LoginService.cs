@@ -38,24 +38,21 @@ namespace Backend.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             user.Token = tokenHandler.WriteToken(token);
 
-            user.Password = null;
+            User userLoggedin = _userService.Update(user);
+
+            userLoggedin.Password = null;
+
+
 
             return user;
         }
 
-        public void Logout()
+        public void Logout(long userId)
         {
-            throw new System.NotImplementedException();
-        }
+            User user = _userService.GetById(userId);
+            user.Token = null;
 
-        private void DoLogin() 
-        {
-            
-        }
-
-        private void DoLogout()
-        {
-
+            _userService.Update(user);            
         }
     }
 }

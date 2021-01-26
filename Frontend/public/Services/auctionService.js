@@ -4,7 +4,7 @@ class AuctionService {
         return localStorage.getItem('auctions');
     }
 
-    async GetByParams(formData = new FormData()) {
+    async GetByParam(formData = new FormData()) {
         return await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', body: formData });
     }
 

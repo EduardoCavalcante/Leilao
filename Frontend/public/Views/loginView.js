@@ -9,7 +9,7 @@ class LoginView {
             event.preventDefault();
             try {
                 this.validate();
-                handleLogin(event.target);
+                handleLogin(new FormData(event.target));
             }
             catch (exception) {
                 if (Array.isArray(exception)) {

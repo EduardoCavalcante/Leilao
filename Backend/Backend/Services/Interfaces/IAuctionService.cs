@@ -1,17 +1,14 @@
 ﻿using Backend.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Backend.Services.Interfaces
 {
     public interface IAuctionService
     {
-        User Create(Auction auction);
+        Auction Create(Auction auction);
         void Delete(long auctionId);
-        User Update(Auction auction);
-        List<User> GetAll();
-        User GetById(long auctionId);
+        Auction Update(Auction auction);
+        List<Auction> GetAll();
+        Auction GetById(long auctionId);
     }
 }
